@@ -96,8 +96,8 @@ This project was written with BDD and has Chrome browser tests, but this is pret
 
 ## TODO
 
-[ ] Minify
-[ ] Transpile to ES5
-[ ] Document local dev setup
-[ ] Tests for other browsers
-[ ] Publish
+- [ ] Minify
+- [ ] Transpile to ES5
+- [ ] Document local dev setup
+- [ ] Tests for other browsers
+- [ ] Publish
