@@ -16,7 +16,7 @@ function isGroupSupported(isSupported, group) {
     const arePropertiesSupported = isTypeSupported(target, group.properties);
     const areStylesSupported = target.style ? isTypeSupported(target.style, group.styles) : true;
 
-    return areMethodsSupported && areStylesSupported && arePropertiesSupported;
+    return isSupported && areMethodsSupported && areStylesSupported && arePropertiesSupported;
 }
 
 function isTypeSupported(target, expectedFeatures, expectedType) {
@@ -26,8 +26,9 @@ function isTypeSupported(target, expectedFeatures, expectedType) {
 
     return expectedFeatures.reduce((isSupported, item) => {
         const value = target[item];
+        const doesTypeMatch = expectedType ? typeof value === expectedType : typeof value !== 'undefined';
 
-        return expectedType ? typeof value === expectedType : typeof value !== 'undefined';
+        return isSupported && doesTypeMatch;
     }, true);
 }
 

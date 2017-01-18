@@ -17,4 +17,16 @@ describe('the isBrowserSupported functional tests', function () {
     it('should return true if a browser supports the configured features', function () {
         expect(isBrowserSupported(featureConfig)).to.equal(true);
     });
+
+    it('should return false if the window.CustomEvent is missing', function () {
+        delete window.CustomEvent;
+
+        expect(isBrowserSupported(featureConfig)).to.equal(false);
+    });
+
+    it('should return false if the window.CustomEvent is not a constructor function', function () {
+        window.CustomEvent = {};
+        
+        expect(isBrowserSupported(featureConfig)).to.equal(false);
+    });
 });
