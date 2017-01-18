@@ -1,32 +1,38 @@
-{
-    "window": {
-        "function": [
+[
+    {
+        "name": "window",
+
+        "methods": [
             "CustomEvent"
         ],
 
-        "property": [
+        "properties": [
             "localStorage"
         ]
     },
 
-    "document": {
-        "function": [
+    {
+        "name": "document",
+
+        "methods": [
             "querySelector"
         ]
     },
     
-    "element": {
-        "function": [
+    {
+        "name": "element",
+        
+        "methods": [
             "querySelector"
         ],
 
-        "property": [
+        "properties": [
             "chidren"
         ],
-        
-        "style": [
+
+        "styles": [
             "flex",
             "flexBasis"
         ]
     }
-}
+]
