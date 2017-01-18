@@ -23,7 +23,7 @@
         ],
 
         "properties": [
-            "children"
+            "outerHTML"
         ],
 
         "styles": [
