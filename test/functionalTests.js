@@ -4,8 +4,8 @@ const featureConfig = require('./featureConfig.json');
 const detectorist = require('../');
 
 /* these tests verify the library's behaviour against
- * the sample featureConfig file. Seperate E2E tests are to be
- * written for actual browsers. */
+ * the sample featureConfig file. Seperate E2E tests are
+ * being written for actual browsers. */
 describe('the detectorist functional tests', function () {
     let destroyDom;
 
