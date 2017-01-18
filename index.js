@@ -13,8 +13,10 @@ const specialMappings = {
 function isGroupSupported(isSupported, group) {
     const target = specialMappings[group.name] || window[group.name];
     const areMethodsSupported = isTypeSupported(target, group.methods, 'function');
+    const arePropertiesSupported = isTypeSupported(target, group.properties);
+    const areStylesSupported = target.style ? isTypeSupported(target.style, group.styles) : true;
 
-    return areMethodsSupported;
+    return areMethodsSupported && areStylesSupported && arePropertiesSupported;
 }
 
 function isTypeSupported(target, expectedFeatures, expectedType) {
@@ -23,10 +25,9 @@ function isTypeSupported(target, expectedFeatures, expectedType) {
     }
 
     return expectedFeatures.reduce((isSupported, item) => {
-        const hasFeature = !!target[item];
-        const doesFeatureConformToType = expectedType ? typeof target[item] === expectedType : true;
+        const value = target[item];
 
-        return hasFeature && doesFeatureConformToType;
+        return expectedType ? typeof value === expectedType : typeof value !== 'undefined';
     }, true);
 }
 
