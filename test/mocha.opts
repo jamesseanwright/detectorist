@@ -1,2 +1,2 @@
-test/*Tests.js
+test/**/*Tests.js
 --require test/init
