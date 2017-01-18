@@ -3,7 +3,55 @@
     <head>
         <title>Detectorist Browser Test Page</title>
     </head>
-    <body>
 
+    <body>
+        <div id="result"></div>
+        <script src="/detectorist.js"></script>
+
+        <script>
+            (function () {
+                'use strict';
+
+                const featureConfig = [
+                    {
+                        name: 'window',
+
+                        methods: [
+                            'CustomEvent'
+                        ]
+                    },
+
+                    {
+                        name: 'document',
+
+                        methods: [
+                            'querySelector'
+                        ]
+                    },
+                    
+                    {
+                        name: 'element',
+                        
+                        methods: [
+                            'querySelector'
+                        ],
+
+                        properties: [
+                            'outerHTML'
+                        ],
+
+                        styles: [
+                            'display',
+                            'textAlign'
+                        ]
+                    }
+                ];
+
+                const isBrowserSupported = detectorist(featureConfig);
+                const resultElement = document.body.querySelector('#result');
+
+                resultElement.textContent = isBrowserSupported;
+            }());
+        </script>
     </body>
 </html>

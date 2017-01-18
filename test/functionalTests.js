@@ -1,12 +1,12 @@
 'use strict';
 
 const featureConfig = require('./featureConfig.json');
-const isBrowserSupported = require('../');
+const detectorist = require('../');
 
 /* these tests verify the library's behaviour against
  * the sample featureConfig file. Seperate E2E tests are to be
  * written for actual browsers. */
-describe('the isBrowserSupported functional tests', function () {
+describe('the detectorist functional tests', function () {
     let destroyDom;
 
     beforeEach(function () {
@@ -18,20 +18,20 @@ describe('the isBrowserSupported functional tests', function () {
     });
 
     it('should return true if a browser supports the configured features', function () {
-        expect(isBrowserSupported(featureConfig)).to.equal(true);
+        expect(detectorist(featureConfig)).to.equal(true);
     });
 
     describe('window', function () {
         it('should return false if CustomEvent is missing', function () {
             window.CustomEvent = undefined;
 
-            expect(isBrowserSupported(featureConfig)).to.equal(false);
+            expect(detectorist(featureConfig)).to.equal(false);
         });
 
         it('should return false if CustomEvent is not a function', function () {
             window.CustomEvent = {};
             
-            expect(isBrowserSupported(featureConfig)).to.equal(false);
+            expect(detectorist(featureConfig)).to.equal(false);
         });
     });
 
@@ -39,13 +39,13 @@ describe('the isBrowserSupported functional tests', function () {
         it('should return false if querySelector is missing', function () {
             document.querySelector = undefined;
             
-            expect(isBrowserSupported(featureConfig)).to.equal(false);
+            expect(detectorist(featureConfig)).to.equal(false);
         });
 
         it('should return false if querySelector is not a function', function () {
             document.querySelector = {};
             
-            expect(isBrowserSupported(featureConfig)).to.equal(false);
+            expect(detectorist(featureConfig)).to.equal(false);
         });
     });
 
@@ -53,13 +53,13 @@ describe('the isBrowserSupported functional tests', function () {
         it('should return false if querySelector is missing', function () {
             window.HTMLElement.prototype.querySelector = undefined;
             
-            expect(isBrowserSupported(featureConfig)).to.equal(false);
+            expect(detectorist(featureConfig)).to.equal(false);
         });
 
         it('should return false if querySelector is not a function', function () {
             window.HTMLElement.prototype.querySelector = {};
             
-            expect(isBrowserSupported(featureConfig)).to.equal(false);
+            expect(detectorist(featureConfig)).to.equal(false);
         });
 
         it('should return false if the foo property is missing', function () {
@@ -73,7 +73,7 @@ describe('the isBrowserSupported functional tests', function () {
                 }
             ];
 
-            expect(isBrowserSupported(fooConfig)).to.equal(false);
+            expect(detectorist(fooConfig)).to.equal(false);
         });
 
         it('should return false if the foo style property is missing', function () {
@@ -87,7 +87,7 @@ describe('the isBrowserSupported functional tests', function () {
                 }
             ];
 
-            expect(isBrowserSupported(fooConfig)).to.equal(false);
+            expect(detectorist(fooConfig)).to.equal(false);
         });
     });
 });

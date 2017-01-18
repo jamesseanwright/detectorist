@@ -6,9 +6,8 @@
   "scripts": {
     "build": "mkdir -p dist && browserify --standalone detectorist index.js > dist/detectorist.js",
     "copy-for-browser-tests": "cp dist/detectorist.js test/browserTests",
-    "unit-tests": "mocha",
-    "browser-tests": "",
-    "test": "npm run unit-tests"
+    "unit-tests": "mocha test/*Tests.js --require test/init",
+    "test": "npm run unit-tests && ./test/runBrowserTests.sh"
   },
   "keywords": [
     "browser",
@@ -22,6 +21,8 @@
     "browserify": "13.3.0",
     "chai": "3.5.0",
     "jsdom": "9.9.1",
-    "mocha": "3.2.0"
+    "mocha": "3.2.0",
+    "node-static": "0.7.9",
+    "selenium-webdriver": "3.0.1"
   }
 }
