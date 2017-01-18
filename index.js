@@ -12,14 +12,14 @@ const specialMappings = {
 
 function isGroupSupported(isSupported, group) {
     const target = specialMappings[group.name] || window[group.name];
-    const areMethodsSupported = isTypeSupported(target, group.methods, 'function');
-    const arePropertiesSupported = isTypeSupported(target, group.properties);
-    const areStylesSupported = target.style ? isTypeSupported(target.style, group.styles) : true;
+    const areMethodsSupported = areFeaturesSupported(target, group.methods, 'function');
+    const arePropertiesSupported = areFeaturesSupported(target, group.properties);
+    const areStylesSupported = target.style ? areFeaturesSupported(target.style, group.styles) : true;
 
     return isSupported && areMethodsSupported && areStylesSupported && arePropertiesSupported;
 }
 
-function isTypeSupported(target, expectedFeatures, expectedType) {
+function areFeaturesSupported(target, expectedFeatures, expectedType) {
     if (!expectedFeatures) {
         return true;
     }

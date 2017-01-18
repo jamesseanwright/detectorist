@@ -12,7 +12,7 @@ global.createDom = function createDom() {
     global.document = document;
 
     return function destroyDom() {
-        delete global.window;
-        delete global.document;
+        global.window = undefined;
+        global.document = undefined;
     };
 };
