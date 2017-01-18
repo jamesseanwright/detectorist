@@ -1,0 +1,32 @@
+{
+    "window": {
+        "function": [
+            "CustomEvent"
+        ],
+
+        "property": [
+            "localStorage"
+        ]
+    },
+
+    "document": {
+        "function": [
+            "querySelector"
+        ]
+    },
+    
+    "element": {
+        "function": [
+            "querySelector"
+        ],
+
+        "property": [
+            "chidren"
+        ],
+        
+        "style": [
+            "flex",
+            "flexBasis"
+        ]
+    }
+}
