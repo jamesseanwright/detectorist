@@ -1,5 +1,5 @@
 {
-  "name": "is-browser-supported",
+  "name": "detectorist",
   "version": "0.0.1",
   "description": "Detects if a browser is supported based upon configurable features",
   "main": "index.js",
